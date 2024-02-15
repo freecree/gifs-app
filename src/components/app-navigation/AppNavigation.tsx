@@ -1,6 +1,6 @@
 import { Box, Button, ButtonGroup } from '@mui/material';
 import { appNavigationStyles } from './appNavigationStyles';
-import SettingsButton from '../buttons/settings-button/SettingsButton';
+import { settingButtonStyles } from './appNavigationStyles';
 
 function AppNavigation() {
   return (
@@ -9,7 +9,9 @@ function AppNavigation() {
         <Button variant='contained'>Trends</Button>
         <Button variant='contained'>Search</Button>
         <Button variant='contained'>Random</Button>
-        <SettingsButton>Settings</SettingsButton>
+        <Button sx={settingButtonStyles} variant='contained' color='primary'>
+          Settings
+        </Button>
       </ButtonGroup>
     </Box>
   );
