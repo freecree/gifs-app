@@ -1,6 +1,7 @@
 export const appNavigationStyles = {
   display: 'flex',
   justifyContent: 'center',
+  marginBottom: '50px',
 };
 
 export const settingButtonStyles = {
