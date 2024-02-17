@@ -4,7 +4,7 @@ import GifItem from '../gif-item/GifItem';
 import CircularProgress from '@mui/material/CircularProgress';
 
 function Gifs() {
-  const { data, error, isLoading } = useGetTrendGifsQuery();
+  const { data: gifs, error, isLoading } = useGetTrendGifsQuery();
 
   return (
     <>
@@ -12,9 +12,9 @@ function Gifs() {
         <div>Opps, something went wrong...</div>
       ) : isLoading ? (
         <CircularProgress />
-      ) : data ? (
+      ) : gifs ? (
         <ImageList rowHeight={200} gap={10} cols={3}>
-          {data.data.map((gif) => (
+          {gifs.data.map((gif) => (
             <GifItem gif={gif} key={gif.id} />
           ))}
         </ImageList>
