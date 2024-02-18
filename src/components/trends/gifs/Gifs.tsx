@@ -2,9 +2,33 @@ import ImageList from '@mui/material/ImageList';
 import { useGetTrendGifsQuery } from '../../../services/gifService';
 import GifItem from '../gif-item/GifItem';
 import CircularProgress from '@mui/material/CircularProgress';
+import { useEffect, useState } from 'react';
 
 function Gifs() {
-  const { data: gifs, error, isLoading } = useGetTrendGifsQuery();
+  const [page, setPage] = useState(0);
+  const {
+    data: gifs,
+    error,
+    isFetching,
+    isLoading,
+  } = useGetTrendGifsQuery(page);
+  console.log('page: ', page);
+
+  useEffect(() => {
+    const scrollHandler = () => {
+      const scrolledToBottom =
+        document.body.offsetHeight - (window.innerHeight + window.scrollY) <
+        100;
+      if (scrolledToBottom && !isFetching) {
+        setPage(page + 1);
+      }
+    };
+
+    document.addEventListener('scroll', scrollHandler);
+    return function () {
+      document.removeEventListener('scroll', scrollHandler);
+    };
+  }, [page, isFetching]);
 
   return (
     <>
@@ -14,8 +38,8 @@ function Gifs() {
         <CircularProgress />
       ) : gifs ? (
         <ImageList rowHeight={200} gap={10} cols={3}>
-          {gifs.data.map((gif) => (
-            <GifItem gif={gif} key={gif.id} />
+          {gifs.data.map((gif, i) => (
+            <GifItem gif={gif} key={i} />
           ))}
         </ImageList>
       ) : null}
