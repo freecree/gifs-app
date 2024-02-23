@@ -1,12 +1,12 @@
-import ImageListItem from '@mui/material/ImageListItem';
 import { IGif } from '../../../models/IGif';
 import { gifItemStyles } from './gifItemStyles';
+import { Box } from '@mui/material';
 
-function GifItem({ gif }: { gif: IGif }) {
+function GifItem({ item: gif }: { item: IGif }) {
   return (
-    <ImageListItem sx={gifItemStyles}>
+    <Box sx={gifItemStyles}>
       <img src={gif.images.original.url} />
-    </ImageListItem>
+    </Box>
   );
 }
 
