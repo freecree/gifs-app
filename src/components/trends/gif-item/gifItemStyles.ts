@@ -1,18 +1,13 @@
 export const gifItemStyles = {
   height: '200px',
-  flexBasis: '33.333333%',
+  flexBasis: 'calc(33.333333% - 7px)',
   boxSizing: 'border-box',
   position: 'relative',
-  // width: '33%',
+  '@media only screen and (max-width:500px)': {
+    flexBasis: 'calc(50% - 5px)',
+  },
   '& img': {
     height: '200px',
     width: '100%',
   },
-  // '&::after': {
-  //   content: '""',
-  //   position: 'absolute',
-  //   backgroundColor: 'rgb(0, 0, 0, 0.93)',
-  //   width: '100%',
-  //   height: '100%',
-  // },
 };

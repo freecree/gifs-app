@@ -3,7 +3,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { useEffect, useState } from 'react';
 import { VirtualScroll } from './VitrualScroll';
 
-function VirtualGifs() {
+function Gifs() {
   const [page, setPage] = useState(0);
   const {
     data: gifs,
@@ -41,4 +41,4 @@ function VirtualGifs() {
     </>
   );
 }
-export default VirtualGifs;
+export default Gifs;

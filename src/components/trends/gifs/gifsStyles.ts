@@ -3,5 +3,6 @@ export const gifsStyles = {
   '& > div': {
     display: 'flex',
     flexWrap: 'wrap',
+    gap: '10px',
   },
 };
