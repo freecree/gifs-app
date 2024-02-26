@@ -1,5 +1,5 @@
 import { IGif } from '../../../models/IGif';
-import { gifItemStyles } from './gifItemStyles';
+import { gifItemStyles } from '../gifsStyles';
 import { Box } from '@mui/material';
 
 function GifItem({ item: gif }: { item: IGif }) {

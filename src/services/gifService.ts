@@ -23,7 +23,27 @@ export const gifApi = createApi({
         return currentArg !== previousArg;
       },
     }),
+    getSearchedGifs: builder.query<
+      { data: IGif[] },
+      { searchQuery: string; page: number }
+    >({
+      query: ({ searchQuery, page }) =>
+        `search?api_key=${api_key}&q=${searchQuery}&offset=${page}&limit=20`,
+
+      serializeQueryArgs: ({ queryArgs }) => {
+        return queryArgs.searchQuery;
+      },
+      // Always merge incoming data to the cache entry
+      merge: (currentCachedGifs, newGifs) => {
+        currentCachedGifs.data.push(...newGifs.data);
+      },
+      // Refetch when the page arg changes
+      forceRefetch({ currentArg, previousArg }) {
+        console.log('forceRefetch: ', currentArg, previousArg);
+        return currentArg !== previousArg;
+      },
+    }),
   }),
 });
 
-export const { useGetTrendGifsQuery } = gifApi;
+export const { useGetTrendGifsQuery, useGetSearchedGifsQuery } = gifApi;

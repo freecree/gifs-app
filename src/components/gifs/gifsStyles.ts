@@ -1,3 +1,12 @@
+export const gifsStyles = {
+  display: 'flex',
+  '& > div': {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '10px',
+  },
+};
+
 export const gifItemStyles = {
   height: '200px',
   flexBasis: 'calc(33.333333% - 7px)',
