@@ -1,14 +1,11 @@
-import { IGif } from '../../../models/IGif';
-import GifItem from '../gif-item/GifItem';
+import Box from '@mui/material/Box';
 import VirtualScroller from 'virtual-scroller/react';
-import { Box } from '@mui/material';
-import { gifsStyles } from './gifsStyles';
 import type { ScrollableContainer } from 'virtual-scroller';
+import { IGif } from '../../models/IGif';
+import GifItem from './gif-item/GifItem';
+import { gifsStyles } from './gifsStyles';
 
-interface VirtualScrollProps {
-  gifs: IGif[];
-}
-export function VirtualScroll({ gifs }: VirtualScrollProps) {
+function Gifs({ gifs }: { gifs: IGif[] }) {
   const getColumnsCount = (container: ScrollableContainer<number>): number => {
     if (container.getWidth() > 500) {
       return 3;
@@ -25,3 +22,4 @@ export function VirtualScroll({ gifs }: VirtualScrollProps) {
     </Box>
   );
 }
+export default Gifs;
