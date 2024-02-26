@@ -1,6 +1,7 @@
 import { Box, Button, ButtonGroup } from '@mui/material';
 import { appNavigationStyles, buttonGroupStyles } from './appNavigationStyles';
 import { settingButtonStyles } from './appNavigationStyles';
+import { Link } from 'react-router-dom';
 
 function AppNavigation() {
   return (
@@ -10,8 +11,12 @@ function AppNavigation() {
         variant='contained'
         aria-label='Basic button group'
       >
-        <Button variant='contained'>Trends</Button>
-        <Button variant='contained'>Search</Button>
+        <Link to={'/find-gifs/'}>
+          <Button variant='contained'>Trends</Button>
+        </Link>
+        <Link to={'/find-gifs/search/'}>
+          <Button variant='contained'>Search</Button>
+        </Link>
         <Button variant='contained'>Random</Button>
         <Button sx={settingButtonStyles} variant='contained' color='primary'>
           Settings

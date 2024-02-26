@@ -1,18 +1,17 @@
-import { useGetTrendGifsQuery } from '../../../services/gifService';
-import CircularProgress from '@mui/material/CircularProgress';
 import { useState } from 'react';
-import { VirtualScroll } from './VitrualScroll';
+import { useGetSearchedGifsQuery } from '../../../services/gifService';
 import useInfinityScroll from '../../../hooks/useInfinityScroll';
+import { CircularProgress } from '@mui/material';
+import { VirtualScroll } from '../../trends/gifs/VitrualScroll';
 
-function Gifs() {
+function Gifs({ searchValue }: { searchValue: string }) {
   const [page, setPage] = useState(0);
-
   const {
     data: gifs,
     error,
-    isFetching,
     isLoading,
-  } = useGetTrendGifsQuery(page);
+    isFetching,
+  } = useGetSearchedGifsQuery({ searchQuery: searchValue, page });
 
   useInfinityScroll(isFetching, page, setPage);
 
@@ -28,4 +27,5 @@ function Gifs() {
     </>
   );
 }
+
 export default Gifs;
