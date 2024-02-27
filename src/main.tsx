@@ -10,6 +10,7 @@ import Trends from './components/trends/Trends';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import Search from './components/search/Search';
+import Random from './components/random/Random';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: '/find-gifs/search',
     element: <Search />,
+  },
+  {
+    path: '/find-gifs/random',
+    element: <Random />,
   },
 ]);
 

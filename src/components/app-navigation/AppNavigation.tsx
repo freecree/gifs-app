@@ -17,7 +17,9 @@ function AppNavigation() {
         <Link to={'/find-gifs/search/'}>
           <Button variant='contained'>Search</Button>
         </Link>
-        <Button variant='contained'>Random</Button>
+        <Link to={'/find-gifs/random/'}>
+          <Button variant='contained'>Random</Button>
+        </Link>
         <Button sx={settingButtonStyles} variant='contained' color='primary'>
           Settings
         </Button>
