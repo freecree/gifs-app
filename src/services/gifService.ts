@@ -43,7 +43,14 @@ export const gifApi = createApi({
         return currentArg !== previousArg;
       },
     }),
+    getRandomGif: builder.query<{ data: IGif }, void>({
+      query: () => `random?api_key=${api_key}`,
+    }),
   }),
 });
 
-export const { useGetTrendGifsQuery, useGetSearchedGifsQuery } = gifApi;
+export const {
+  useGetTrendGifsQuery,
+  useGetSearchedGifsQuery,
+  useGetRandomGifQuery,
+} = gifApi;
