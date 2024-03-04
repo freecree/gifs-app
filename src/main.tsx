@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import { store } from './store/store';
 import Search from './components/search/Search';
 import Random from './components/random/Random';
+import Settings from './components/settings/Settings';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/find-gifs/random',
     element: <Random />,
+  },
+  {
+    path: '/find-gifs/settings',
+    element: <Settings />,
   },
 ]);
 
